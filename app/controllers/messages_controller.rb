@@ -29,6 +29,13 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
+  #削除のアクション
+  def destroy
+    message = Message.find(params[:id])
+    message.destroy
+  end
+
+
   #Strong Parameterの記述
   private
   def message_params

@@ -12,16 +12,30 @@ class MessagesController < ApplicationController
   def create
     Message.create(message_params)
   end
-  #Strong Parameterの記述
-  private
-  def message_params
-    params.require(:message).permit(:title, :content)
+
+  #編集のアクション
+  def edit
+    @message = Message.find(params[:id])
+  end
+
+  #更新完了のアクション
+  def update
+    message = Message.find(params[:id])
+    message.update(message_params)
   end
 
   #詳細のアクション
   def show
     @message = Message.find(params[:id])
   end
+
+  #Strong Parameterの記述
+  private
+  def message_params
+    params.require(:message).permit(:title, :content)
+  end
+
+
 
 
 end

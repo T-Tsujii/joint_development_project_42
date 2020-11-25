@@ -18,5 +18,10 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:title, :content)
   end
 
+  #詳細のアクション
+  def show
+    @message = Message.find(params[:id])
+  end
+
 
 end

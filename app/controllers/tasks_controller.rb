@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
+    #一覧表示のアクション
   def index
     @task = Task.all
   end
-  
+    #新規投稿のアクション
   def new
     @task = Task.new
   end
@@ -10,6 +11,11 @@ class TasksController < ApplicationController
   def create
     #Strong Parameterの記述
     Task.create(task_params)
+  end
+
+    #詳細のアクション
+  def show
+    @task = Task.find(params[:id])
   end
 
   private

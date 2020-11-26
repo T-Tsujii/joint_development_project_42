@@ -8,10 +8,16 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  def create
     #Strong Parameterの記述
+  def create
     Task.create(task_params)
   end
+
+    #削除のアクション
+    def destroy
+      task = Task.find(params[:id])
+      task.destroy
+    end
 
     #編集のアクション
   def edit
@@ -29,6 +35,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+    #Strong Parameterの記述
   private
   def task_params
     params.require(:task).permit(:title, :content)

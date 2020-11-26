@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     #一覧表示のアクション
   def index
-    @task = Task.all
+    @tasks = Task.all
   end
     #新規投稿のアクション
   def new

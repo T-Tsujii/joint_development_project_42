@@ -13,6 +13,17 @@ class TasksController < ApplicationController
     Task.create(task_params)
   end
 
+    #編集のアクション
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+    #更新完了のアクション
+  def update
+    task = Task.find(params[:id])
+    task.update(task_params)
+  end
+
     #詳細のアクション
   def show
     @task = Task.find(params[:id])
